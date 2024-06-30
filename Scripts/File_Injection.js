@@ -15,12 +15,12 @@
 // #     Version      : 2.5                                                               |
 // #     Category     : Others                                                            |
 // #     Target       : Windows 10/11                                                     |
-// #     Description  : Copie un payload.ps1 vers le PC, evitant utilisation de dropbox.  |
-// #                    Permet de bypass les firewall, marche sur les pc offline.         |
+// #     Description  : Copy a payload.ps1 to the PC, avoid dropbox uses.                 |
+// #                    So this bypass firewall, work on offline PC.                      |
 // #                                                                                      |
 // ########################################################################################
 
-// You need to create a .img in mass storage app named Infiltration (or modify the line 27)
+// You need to create a .img in mass storage app named Infiltration (or modify the line 28)
 // You need to change the line 50 with the name of your file.
 
 print("__Activation des modules__")
