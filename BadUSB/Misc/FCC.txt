@@ -1,0 +1,73 @@
+REM ########################################################################################
+REM |                                                                                      |
+REM |                 ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀                |
+REM |                ▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒                 |
+REM |                ▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░                 |
+REM |                ▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄                 |
+REM |                ▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄                |
+REM |                ░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒                |
+REM |                ░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░                |
+REM |                ░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░                 |
+REM |                       ░    ░   ░     ░           ░  ░     ░  ░░  ░                   |
+REM |                                                                                      |
+REM | Title        : Full Computer Modifier                                                |
+REM | Author       : Miiraak                                                               |
+REM | Version      : v0.5                                                                  |
+REM | Category     : Execute & Management                                                  |
+REM | Target       : Windows 10                                                            |
+REM |                                                                                      |
+REM ########################################################################################
+
+REM Requirements:
+REM     - on Admin local account, only with win10
+
+REM Description:
+REM     - Process the defined computer check-up.  
+REM     - This script doesn't touch domain and machine name
+
+REM ___________________________________________
+REM __________A REMETTRE DANS L'ORDRE__________
+REM ___________________________________________
+
+REM __________Remove IPv6__________
+DEFAULT_DELAY 500
+GUI
+STRING ncpa.cpl
+ENTER
+TAB
+REPEAT 3
+STRING ethernet
+TAB
+TAB
+LEFT
+MENU
+WAIT_FOR_BUTTON_PRESS
+UP
+ENTER
+DELAY 5000
+DOWN
+REPEAT 8
+SPACE
+TAB
+TAB
+ENTER
+TAB
+REPEAT 4
+STRING Wi-Fi
+TAB
+TAB
+LEFT
+MENU
+WAIT_FOR_BUTTON_PRESS
+UP
+ENTER
+DELAY 5000
+DOWN
+REPEAT 8
+SPACE
+TAB
+TAB
+ENTER
+DELAY 1000
+CTRL w
+

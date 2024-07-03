@@ -1,0 +1,48 @@
+REM ########################################################################################
+REM |                                                                                      |
+REM |                 ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀                |
+REM |                ▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒                 |
+REM |                ▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░                 |
+REM |                ▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄                 |
+REM |                ▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄                |
+REM |                ░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒                |
+REM |                ░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░                |
+REM |                ░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░                 |
+REM |                       ░    ░   ░     ░           ░  ░     ░  ░░  ░                   |
+REM |                                                                                      |
+REM | Title        : Full TPM Checker                                                      |
+REM | Author       : Miiraak                                                               |
+REM | Version      : v2.0                                                                  |
+REM | Category     : Execute & Data gathering                                              |
+REM | Target       : Windows 10/11                                                         |
+REM |                                                                                      |
+REM ########################################################################################
+
+REM Requirements:
+REM     - OS Windows
+
+REM Description:
+REM     - Open terminal then gather the name of the machine, active IPv4,  
+REM       the name model, and the version of the trusted platform module 
+
+DELAY 1000
+GUI
+DELAY 500
+STRING powershell
+DELAY 500
+ENTER
+DELAY 1000
+
+REM # Affiche le nom de l'ordinateur.
+STRING $env:COMPUTERNAME;
+
+REM # Affiche les addresses IPv4 active
+STRING Get-NetIPAddress -AddressFamily IPV4 | Select-Object -Property "IPAddress";
+
+REM # Affiche le nom du model de l'ordinateur.
+STRING Get-CimInstance -Classname Win32_ComputerSystem | Select-Object -Property "Model" | Format-List;
+
+REM # Affiche la version du protocole TPM
+STRING tpmtool getdeviceinformation | findstr /c:"-Version du TPM";
+DELAY 100
+ENTER

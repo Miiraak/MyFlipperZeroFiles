@@ -1,0 +1,78 @@
+REM ########################################################################################
+REM |                                                                                      |
+REM |                 ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀                |
+REM |                ▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒                 |
+REM |                ▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░                 |
+REM |                ▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄                 |
+REM |                ▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄                |
+REM |                ░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒                |
+REM |                ░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░                |
+REM |                ░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░                 |
+REM |                       ░    ░   ░     ░           ░  ░     ░  ░░  ░                   |
+REM |                                                                                      |
+REM | Title        : User account tester                                                   |
+REM | Author       : Miiraak                                                               |
+REM | Version      : v2.5                                                                  |
+REM | Category     : Tester                                                                |
+REM | Target       : Windows 10/11                                                         |
+REM |                                                                                      |
+REM ########################################################################################
+
+REM Requirements:
+REM     - Office
+REM     - Navigateur internet
+REM     - Nouveau compte utilisateur
+
+REM Description:
+REM     - Cree et ouvre un fichier .docx, ecrit une phrase test, sauvegarde puis affiche les imprimantes disponible.
+REM     - Ouvre l'explorateur de fichier et verifie si les emplacements réseaux sont OK.
+REM     - Ouvre internet et verifie si la recherche est possible.
+REM     - Deconnecte d'utilisateur
+
+REM ------------ Test word ------------
+DEFAULT_DELAY 500
+MENU
+DELAY 1000
+HOLD e
+DELAY 50
+RELEASE e
+DOWN
+REPEAT 3
+ENTER
+DELAY 1000
+STRING test
+ENTER
+ENTER
+DELAY 5000
+ENTER
+ENTER
+STRING Ceci est un test
+CTRL s
+DELAY 3000
+CTRL P
+DELAY 3000
+ALT F4
+
+REM ------- Test disque reseau --------
+GUI e
+DELAY 1000
+TAB
+REPEAT 2
+ENTER
+STRING Ce PC
+ENTER
+DELAY 3000
+ALT F4
+
+REM ----- Test internet -----                                                                                                                                                                                                                                                                                                                                     
+GUI r
+STRING https://www.google.ch/search?q=test
+ENTER
+DELAY 5000
+CTRL W
+
+REM ----- Deconnexion du compte  -----
+GUI
+STRING CMD
+ENTER
+REM STRING shutdown /l

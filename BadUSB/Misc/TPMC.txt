@@ -1,0 +1,45 @@
+REM ########################################################################################
+REM |                                                                                      |
+REM |                 ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀                |
+REM |                ▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒                 |
+REM |                ▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░                 |
+REM |                ▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄                 |
+REM |                ▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄                |
+REM |                ░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒                |
+REM |                ░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░                |
+REM |                ░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░                 |
+REM |                       ░    ░   ░     ░           ░  ░     ░  ░░  ░                   |
+REM |                                                                                      |
+REM | Title        : TPM Checker                                                           |
+REM | Author       : Miiraak                                                               |
+REM | Version      : v1.5                                                                  |
+REM | Category     : Execute & Data gathering                                              |
+REM | Target       : Windows 10/11                                                         |
+REM |                                                                                      |
+REM ########################################################################################
+
+REM Requirements:
+REM     - OS Windows
+
+REM Description:
+REM     - Open terminal then gather the name of the machine  
+REM       and the version of the trusted platform module 
+
+DELAY 1000
+GUI
+DELAY 500
+STRING cmd
+DELAY 300
+RIGHT
+DELAY 300
+DOWN
+DELAY 100
+ENTER
+DELAY 1000
+LEFT
+DELAY 100
+ENTER
+DELAY 500
+STRING hostname && tpmtool getdeviceinformation | findstr /c:"-Version du TPM"
+DELAY 100
+ENTER
